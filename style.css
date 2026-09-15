@@ -1,131 +1,171 @@
+/* ===== Bài 2: Máy tính đơn giản ===== */
+
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, sans-serif;
-  line-height: 1.6;
-  background-color: #f5f5f5;
-  color: #222;
-  padding: 20px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(160deg, #1e293b 0%, #334155 100%);
+  color: #e2e8f0;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
   text-align: center;
-  padding: 30px 20px;
-  background-color: #4a90e2;
-  color: white;
-  border-radius: 12px;
-  margin-bottom: 20px;
+  padding: 28px 16px 8px;
 }
 
 header h1 {
-  font-size: 2rem;
-  margin-bottom: 8px;
+  margin: 0 0 6px;
+  font-size: 1.7rem;
 }
 
 .subtitle {
-  font-size: 1rem;
-  opacity: 0.95;
+  margin: 0;
+  color: #94a3b8;
+  font-size: 0.95rem;
 }
 
-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  background-color: #fff;
-  padding: 12px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+nav {
+  margin-top: 10px;
 }
 
-nav ul li {
-  margin: 0 15px;
-}
-
-nav ul li a {
+nav a {
+  color: #7dd3fc;
   text-decoration: none;
-  color: #4a90e2;
-  font-weight: 500;
+  font-size: 0.9rem;
 }
 
-nav ul li a:hover {
+nav a:hover {
   text-decoration: underline;
 }
 
 main {
-  max-width: 800px;
-  margin: 0 auto;
-  background-color: #fff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-
-section {
-  margin-bottom: 20px;
-}
-
-section h2 {
-  color: #4a90e2;
-  margin-bottom: 8px;
-}
-
-.actions {
+  flex: 1;
   display: flex;
-  gap: 12px;
-  margin-top: 20px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 16px 32px;
 }
 
-.actions button {
-  padding: 10px 20px;
+/* ----- Khung máy tính ----- */
+.calculator {
+  width: 100%;
+  max-width: 340px;
+  background: #0f172a;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* ----- Màn hình hiển thị ----- */
+.screen {
+  background: #020617;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  text-align: right;
+  min-height: 92px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.expression {
+  min-height: 20px;
+  font-size: 0.9rem;
+  color: #64748b;
+  word-break: break-all;
+}
+
+.display {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #f8fafc;
+  word-break: break-all;
+  line-height: 1.2;
+}
+
+/* ----- Bàn phím ----- */
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.key {
   border: none;
-  border-radius: 6px;
-  background-color: #4a90e2;
-  color: white;
-  font-size: 1rem;
+  border-radius: 12px;
+  padding: 16px 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  background: #1e293b;
   cursor: pointer;
-  transition: transform 0.15s ease, background-color 0.2s ease;
+  transition: transform 0.08s ease, background 0.15s ease;
 }
 
-.actions button:hover {
-  background-color: #357abd;
-  transform: translateY(-2px);
+.key:hover {
+  background: #334155;
+}
+
+.key:active {
+  transform: scale(0.94);
+}
+
+.key-op {
+  background: #1d4ed8;
+}
+
+.key-op:hover {
+  background: #2563eb;
+}
+
+.key-action {
+  background: #475569;
+}
+
+.key-action:hover {
+  background: #64748b;
+}
+
+.key-equal {
+  background: #16a34a;
+}
+
+.key-equal:hover {
+  background: #22c55e;
+}
+
+.key-wide {
+  grid-column: span 2;
+}
+
+.hint {
+  max-width: 340px;
+  margin: 18px auto 0;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.hint code {
+  background: #1e293b;
+  padding: 1px 5px;
+  border-radius: 4px;
+  color: #e2e8f0;
 }
 
 footer {
-  margin-top: 20px;
   text-align: center;
-  color: #666;
-  font-size: 0.9rem;
-}
-
-/* Dark Mode */
-body.dark-mode {
-  background-color: #1e1e2e;
-  color: #e0e0e0;
-}
-
-body.dark-mode header {
-  background-color: #6a5acd;
-}
-
-body.dark-mode nav ul,
-body.dark-mode main {
-  background-color: #2a2a3a;
-  color: #e0e0e0;
-}
-
-body.dark-mode nav ul li a,
-body.dark-mode section h2 {
-  color: #9b8aff;
-}
-
-body.dark-mode footer {
-  color: #aaa;
+  padding: 16px;
+  font-size: 0.85rem;
+  color: #64748b;
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
 }
