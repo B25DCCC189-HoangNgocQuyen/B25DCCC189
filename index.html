@@ -3,60 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bài 2 - Máy tính JavaScript</title>
+  <title>Giới thiệu bản thân</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>🧮 Máy tính đơn giản</h1>
-    <p class="subtitle">Bài tập thực hành 2 - JavaScript cơ bản</p>
-    <nav><a href="../index.html">← Về trang chủ</a></nav>
+    <h1 id="greeting">Xin chào!</h1>
+    <p class="subtitle">Chào mừng bạn đến với trang cá nhân của tôi</p>
   </header>
 
+  <nav>
+    <ul>
+      <li><a href="#about">Giới thiệu</a></li>
+      <li><a href="#hobby">Sở thích</a></li>
+      <li><a href="#contact">Liên hệ</a></li>
+      <li><a href="../index.html">← Trang chủ</a></li>
+    </ul>
+  </nav>
+
   <main>
-    <div class="calculator">
-      <!-- Màn hình hiển thị -->
-      <div class="screen">
-        <div id="expression" class="expression"></div>
-        <div id="display" class="display">0</div>
-      </div>
+    <section id="about">
+      <h2>👋 Giới thiệu</h2>
+      <p>
+        Xin chào! Mình là <strong>Hoàng Ngọc Quyền</strong>, sinh viên năm hai
+        ngành Công nghệ thông tin. Mình đang học lập trình Web và đặc biệt
+        yêu thích JavaScript.
+      </p>
+    </section>
 
-      <!-- Bàn phím: dùng data-* để JS biết từng nút làm gì -->
-      <div class="keys">
-        <button class="key key-action" data-action="clear">C</button>
-        <button class="key key-action" data-action="delete">⌫</button>
-        <button class="key key-op" data-operator="%">%</button>
-        <button class="key key-op" data-operator="/">÷</button>
+    <section id="hobby">
+      <h2>🎯 Sở thích</h2>
+      <p>Đọc sách, viết code, chơi thể thao và đi du lịch.</p>
+    </section>
 
-        <button class="key" data-number="7">7</button>
-        <button class="key" data-number="8">8</button>
-        <button class="key" data-number="9">9</button>
-        <button class="key key-op" data-operator="*">×</button>
+    <section id="contact">
+      <h2>📬 Liên hệ</h2>
+      <p>Email: <a href="mailto:B25DCCC189@students.ptit.edu.vn">B25DCCC189@students.ptit.edu.vn</a></p>
+    </section>
 
-        <button class="key" data-number="4">4</button>
-        <button class="key" data-number="5">5</button>
-        <button class="key" data-number="6">6</button>
-        <button class="key key-op" data-operator="-">−</button>
-
-        <button class="key" data-number="1">1</button>
-        <button class="key" data-number="2">2</button>
-        <button class="key" data-number="3">3</button>
-        <button class="key key-op" data-operator="+">+</button>
-
-        <button class="key key-wide" data-number="0">0</button>
-        <button class="key" data-number=".">,</button>
-        <button class="key key-equal" data-action="equals">=</button>
-      </div>
+    <div class="actions">
+      <button id="changeColorBtn">🎨 Đổi màu nền</button>
+      <button id="toggleModeBtn">🌗 Bật/Tắt Dark Mode</button>
     </div>
-
-    <p class="hint">
-      Mẹo: bạn có thể gõ trực tiếp bằng bàn phím máy tính
-      (số, <code>+ - * / %</code>, <code>Enter</code> = tính, <code>Esc</code> = xoá).
-    </p>
   </main>
 
   <footer>
-    <p>&copy; 2025 - Hoàng Ngọc Quyền - B25DCCC189</p>
+    <p>&copy; 2025 - Trang cá nhân được tạo bằng HTML + CSS + JavaScript.</p>
   </footer>
 
   <script src="script.js"></script>
